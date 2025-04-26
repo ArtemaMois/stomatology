@@ -1,0 +1,548 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 16px;
+  width: auto;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.wrapper {
+  background-color: #3379a6;
+  width: auto;
+}
+
+.container {
+  width: auto;
+  margin: 0 auto;
+}
+
+header {
+  padding: 50px 0;
+  width: 100%;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+header .logo {
+  text-transform: uppercase;
+  font-size: 29px;
+  font-weight: 800;
+  align-items: center;
+}
+
+@media (max-width: 1000px) {
+  header .logo {
+  }
+}
+
+/* header nav {
+  float: right;
+  width: 50%;
+  font-size: 19px;
+  font-weight: 800;
+  padding-right: 20px;
+} */
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 19px;
+  font-weight: 800;
+  padding: 0;
+}
+
+@media (max-width: 1000px) {
+  header nav ul {
+    flex-direction: column;
+    grid-gap: 20px;
+  }
+}
+
+header nav ul li a {
+  color: #ffffff;
+}
+
+header nav ul li.active::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 5px;
+  background: #012264;
+}
+
+header nav ul li:not(.active):not(.open-btn) a:hover {
+  border-bottom: 5px solid #012264;
+}
+
+header nav ul li.open-btn a {
+  background: #012264;
+
+  border-radius: 5px;
+  padding: 20px 30px;
+  border: 0;
+  transition: all 500ms ease;
+}
+
+header nav ul li.open-btn a:hover {
+  background: #259371;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.hero {
+  padding-bottom: 100px;
+  width: auto;
+}
+
+.hero--info {
+  position: relative;
+  width: auto;
+  margin-top: 50px;
+}
+
+.hero--info p {
+  color: #ffffff;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 170%;
+  margin: auto;
+  text-align: center;
+}
+
+.hero--info h2 {
+  color: #ffffff;
+  font-size: 64px;
+  font-weight: 600;
+
+  text-align: center;
+}
+
+@media (max-width: 1000px) {
+  .hero--info h2 {
+    font-size: 44px;
+  }
+}
+
+.hero--info .btn {
+  background: #012264;
+  color: #ffffff;
+  border-radius: 50px;
+  padding: 30px 30px;
+  border: 0;
+  transition: all 500ms ease;
+  font-size: 35px;
+  font-weight: 800;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero--info .btn:hover {
+  background: #259371;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.hero img {
+  position: relative;
+  transition: all 500ms ease;
+  float: left;
+  padding-left: 50px;
+}
+
+.hero img:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+/* about */
+
+/* Контейнер страницы */
+.about-container {
+  /* display: flex; */
+  justify-content: center; /* Центрируем блоки по горизонтали */
+  align-items: center; /* Центрируем блоки по вертикали */
+  height: 100%;
+  gap: 10px; /* Уменьшаем отступ между блоками */
+}
+
+/* Левый блок с текстом */
+.about-content {
+  /* flex: 0 0 45%; Уменьшаем ширину блока с текстом */
+  /* display: flex; */
+  flex-direction: column;
+  justify-content: center; /* Выравниваем контент по верхнему краю */
+  gap: 5px; /* Уменьшаем вертикальные отступы между элементами */
+  height: 100%;
+  align-items: center;
+  /* margin: 100px;
+  padding: 20px 0; */
+}
+
+.about-block {
+  background-color: #012264;
+  color: #ffffff;
+  border-radius: 50px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1.5rem;
+  line-height: 1.8;
+  transition: all 500ms ease, background-color 500ms ease;
+}
+
+.about-block:hover {
+  transform: scale(1.05);
+  background: #259371;
+  cursor: pointer;
+}
+
+.about-middle-text {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+
+  margin: 5px 0; /* Уменьшаем вертикальные отступы внутри текста */
+}
+
+/* Изображение справа */
+.about-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: auto;
+}
+
+.about-image img {
+  /* max-width: 200%; */
+  height: auto;
+  border-radius: 10px;
+  transition: all 500ms ease;
+}
+
+.about-image img:hover {
+  transform: scale(1.1);
+}
+
+/* service */
+
+/* Контейнер услуг */
+.services-container {
+  padding: 50px;
+  max-width: auto;
+  margin: 0 auto;
+}
+
+.services-title {
+  font-size: 64px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.services-subtitle {
+  font-size: 32px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.services-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+
+  margin-bottom: 40px;
+}
+
+@media (max-width: 1000px) {
+  .services-content {
+    flex-direction: column;
+  }
+}
+
+.service-block {
+  width: auto;
+  background: #012264;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.service-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.service-heading {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.service-list {
+  list-style-type: none;
+  text-align: left;
+  padding-left: 20px;
+  line-height: 2;
+}
+
+.service-list li::before {
+  content: '\2022'; /* Точка */
+  color: #4682b4;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+.center-image .tooth-icon {
+  cursor: pointer;
+  transition: all 500ms ease;
+}
+
+.center-image .tooth-icon:hover {
+  transform: scale(1.1);
+}
+
+/* future */
+
+.future {
+  background: url(/img/static2.png) no-repeat center center fixed;
+  background-size: cover;
+  padding: 150px 0;
+  width: 100%;
+  position: relative;
+  text-align: center; /* Центрируем элементы внутри блока */
+}
+
+.contact {
+  width: 100%; /* Убедимся, что блок занимает всю ширину */
+  position: relative;
+  display: flex;
+  flex-direction: column; /* Располагаем элементы в столбик */
+  align-items: center; /* Центрируем элементы по горизонтали */
+}
+
+.future .contact .btncontact {
+  background: #012264;
+  color: #ffffff;
+  border-radius: 50px;
+  padding: 20px 30px;
+  border: 0;
+  transition: all 500ms ease;
+  font-size: 23px;
+  font-weight: 800;
+  margin-top: 30px; /* Отступ сверху */
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.future .contact .btncontact:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background-color: #259371;
+}
+
+/* Для кнопок .btncons и .btnpochta */
+.future .contact .buttons {
+  display: flex; /* Используем flexbox для выравнивания кнопок по горизонтали */
+  justify-content: center; /* Центрируем кнопки по горизонтали */
+  gap: 20px; /* Отступ между кнопками */
+  margin-top: 30px; /* Отступ сверху для блоков с кнопками */
+}
+
+.future .contact .btncons,
+.future .contact .btnpochta {
+  background: #012264;
+  color: #ffffff;
+  border-radius: 50px;
+  padding: 20px 30px;
+  border: 0;
+  transition: all 500ms ease;
+  font-size: 25px;
+  font-weight: 800;
+  margin: 10px 0;
+}
+
+@media (max-width: 400px) {
+  .future .contact .btncons,
+  .future .contact .btnpochta {
+    padding: 20px 10px;
+  }
+
+  .future .contact .btncons,
+  .future .contact .btnpochta{
+    font-size: 20px;
+  }
+}
+
+.future .contact .btncons:hover,
+.future .contact .btnpochta:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background-color: #259371;
+}
+
+/* modal */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Контент модального окна */
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 60%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  margin: auto;
+  z-index: 1010;
+  color: #000; /* Убедитесь, что текст черного цвета */
+  font-size: 16px;
+}
+
+/* Кнопка закрытия */
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Стили формы */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: auto;
+}
+
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+  transition: all 500ms ease;
+}
+
+.btn-close:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background-color: #259371;
+}
+
+button.submit-btn {
+  background-color: #012264;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 500ms ease;
+}
+
+button.submit-btn:hover {
+  background-color: #259371;
+  transform: scale(1);
+}
+
+body.modal-open {
+  overflow: hidden; /* Отключение прокрутки при открытом модальном окне */
+}
+
+/* footer */
+
+footer {
+  background: #012264;
+  padding: 50px 0;
+}
+
+footer .blocks {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+footer .blocks p {
+  width: 300px;
+  margin: 15px 0;
+}
+
+footer .blocks h4 {
+  font-weight: 500;
+  font-size: 17px;
+}
+
+footer .blocks ul {
+  list-style: none;
+}
+
+footer .blocks ul li {
+  margin-top: 7px;
+  opacity: 0.8;
+}
+
+footer .blocks .BLESK {
+  text-transform: uppercase;
+  font-size: 29px;
+  font-weight: 800;
+}
+
+@media (max-width: 993px) {
+  .foot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

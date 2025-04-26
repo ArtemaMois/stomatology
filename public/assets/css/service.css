@@ -1,0 +1,319 @@
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 16px;
+  width: auto;
+  margin: 0;
+  background-color: #3379a6;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.wrapper {
+  background-color: #3379a6;
+  width: 100%;
+}
+
+.container {
+  width: auto;
+  margin: 0 auto;
+}
+
+header {
+  padding: 50px 0;
+  width: 100%;
+  box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+header .logo {
+  text-transform: uppercase;
+  font-size: 29px;
+  font-weight: 800;
+  align-items: center;
+}
+
+@media (max-width: 1000px) {
+  header .logo {
+  }
+}
+
+/* header nav {
+  float: right;
+  width: 50%;
+  font-size: 19px;
+  font-weight: 800;
+  padding-right: 20px;
+} */
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 19px;
+  font-weight: 800;
+  padding: 0;
+}
+
+@media (max-width: 1000px) {
+  header nav ul {
+    flex-direction: column;
+    grid-gap: 20px;
+  }
+}
+
+header nav ul li a {
+  color: #ffffff;
+}
+
+header nav ul li.active::after {
+  content: '';
+  display: block;
+  width: 40px;
+  height: 5px;
+  background: #012264;
+}
+
+header nav ul li:not(.active):not(.open-btn) a:hover {
+  border-bottom: 5px solid #012264;
+}
+
+header nav ul li.open-btn a {
+  background: #012264;
+
+  border-radius: 5px;
+  padding: 20px 30px;
+  border: 0;
+  transition: all 500ms ease;
+}
+
+header nav ul li.open-btn a:hover {
+  background: #259371;
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+
+.service_page {
+  width: 100%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section {
+ 
+  margin-bottom: 100px;
+  margin-top: 120px;
+}
+
+@media (max-width:1000px) {
+  .first-block{
+    flex-direction: column-reverse;
+  }
+  .description{
+    margin-bottom: 20px;
+  }
+}
+
+
+
+.section .content {
+}
+
+.section .photos {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.photos img {
+  max-width: 	100%;
+  border-radius: 8px;
+}
+
+button {
+  padding: 10px 20px;
+  background: #012264;
+  color: #ffffff;
+  border-radius: 50px;
+  border: none;
+  transition: all 500ms ease;
+  cursor: pointer;
+  font-size: 40px;
+  font-weight: 800;
+}
+
+button:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+  background: #259371;
+}
+.section p {
+  font-size: 30px;
+  font-weight: 800;
+}
+@media (max-width:500px) {
+  h3 {
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-weight: 800;
+  }
+
+  .section p {
+    font-size: 15px;
+    font-weight: 800;
+  }
+
+  button{
+    font-size: 25px;
+  }
+}
+ul {
+  list-style-type: disc;
+  padding-left: 50px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 30px;
+  font-weight: 800;
+}
+
+/* modal */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Контент модального окна */
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 60%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  position: relative;
+  margin: auto;
+  z-index: 1010;
+  color: #000; /* Убедитесь, что текст черного цвета */
+  font-size: 16px;
+}
+
+/* Кнопка закрытия */
+.btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #333;
+}
+
+/* Стили формы */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+input {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: auto;
+}
+
+button.submit-btn {
+  background-color: #012264;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 500ms ease;
+}
+
+button.submit-btn:hover {
+  background-color: #259371;
+  transform: scale(1);
+}
+
+body.modal-open {
+  overflow: hidden; /* Отключение прокрутки при открытом модальном окне */
+}
+
+/* footer */
+
+footer {
+  background: #012264;
+  padding: 50px 0;
+}
+
+footer .blocks {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+footer .blocks p {
+  width: 300px;
+  margin: 15px 0;
+}
+
+footer .blocks h4 {
+  font-weight: 500;
+  font-size: 17px;
+}
+
+footer .blocks ul {
+  list-style: none;
+}
+
+footer .blocks ul li {
+  margin-top: 7px;
+  opacity: 0.8;
+}
+
+footer .blocks .BLESK {
+  text-transform: uppercase;
+  font-size: 29px;
+  font-weight: 800;
+}
+
+@media (max-width: 993px) {
+  .foot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
