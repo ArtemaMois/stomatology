@@ -28,6 +28,9 @@
                                 <a href="">Записаться на прием</a>
                             </li>
                         </ul>
+                        @if (session()->get("successRecord"))
+                            <div class="success__record">Запись на прием прошла успешно</div>
+                        @endif
                     </nav>
                 </div>
 
@@ -86,7 +89,8 @@
                 </div>
                 <div class="services-content">
                     <div class="service-block">
-                        <img src="{{ asset('/assets/img/service1.svg') }}" alt="Терапевтическая стоматология" class="service-image" />
+                        <img src="{{ asset('/assets/img/service1.svg') }}" alt="Терапевтическая стоматология"
+                            class="service-image" />
                         <h3 class="service-heading">Терапевтическая стоматология</h3>
                         <ul class="service-list">
                             <li>Лечение кариеса</li>
@@ -98,7 +102,8 @@
                         <img src="{{ asset('/assets/img/tooth.svg') }}" alt="Зуб" class="tooth-icon" />
                     </div>
                     <div class="service-block">
-                        <img src="{{ asset('/assets/img/service1.svg') }}" alt="Эстетическая стоматология" class="service-image" />
+                        <img src="{{ asset('/assets/img/service1.svg') }}" alt="Эстетическая стоматология"
+                            class="service-image" />
                         <h3 class="service-heading">Эстетическая стоматология</h3>
                         <ul class="service-list">
                             <li>Гигиеническая чистка</li>
@@ -128,15 +133,34 @@
         <div class="modal-content">
             <button class="btn-close">&times;</button>
             <h2>Запись на прием</h2>
-            <form id="appointment-form">
+            <form id="appointment-form" method="post" action="{{ route('records') }}">
+                @csrf
                 <label for="name">ФИО:</label>
-                <input type="text" id="name" name="name" required />
-
+                <input type="text" id="name" name="fullname" required />
+                @if ($errors->has('fullname'))
+                    <div class="error">{{ $errors->first('fullname') }}</div>
+                @endif
                 <label for="phone">Номер телефона:</label>
-                <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required />
+                <input type="tel" id="phone" data-maska="+7-###-###-##-##" name="phone"
+                    placeholder="+7 (___) ___-__-__" required />
+                @if ($errors->has('phone'))
+                    <div class="error">{{ $errors->first('phone') }}</div>
+                @endif
+
 
                 <label for="email">Почта:</label>
                 <input type="email" id="email" name="email" placeholder="example@mail.com" required />
+                @if ($errors->has('email'))
+                    <div class="error">{{ $errors->first('email') }}</div>
+                @endif
+
+
+                <label for="date">Дата:</label>
+                <input type="datetime-local" id="email" name="date" required />
+                @if ($errors->has('date'))
+                    <div class="error">{{ $errors->first('date') }}</div>
+                @endif
+
 
                 <button type="submit" class="submit-btn">Записаться</button>
             </form>
@@ -170,6 +194,18 @@
 
     </footer>
     <script src="{{ asset('/assets/js/script.js') }}" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/maska@3/dist/cdn/maska.js"></script>
+    <script>
+        const {
+            Mask,
+            MaskInput
+        } = Maska
+
+        new MaskInput("[data-maska]")
+        const mask = new Mask({
+            mask: "#-#"
+        })
+    </script>
 
 </body>
 

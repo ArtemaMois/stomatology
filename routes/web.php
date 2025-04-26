@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RecordController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -19,7 +20,8 @@ Route::get('feedback', function () {
     return view('feedback');
 })->name('feedback');
 
-
 Route::get('/service', function () {
     return view('service');
 })->name('service');
+
+Route::post('/records', [RecordController::class, 'store'])->name('records');

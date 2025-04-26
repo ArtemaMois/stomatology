@@ -546,3 +546,8 @@ footer .blocks .BLESK {
     justify-content: space-between;
   }
 }
+
+.error{
+    color: red;
+    font-size: 12px;
+}
