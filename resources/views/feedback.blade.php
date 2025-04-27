@@ -7,6 +7,7 @@
     <title>Форма отзывов</title>
 
 </head>
+
 <body>
     <style>
         * {
@@ -154,12 +155,48 @@
 
         <button id="add-review">Добавить отзыв</button>
     </div>
-
     <h2>Отзывы:</h2>
     <div class="reviews-container" id="reviews-container">
         <!-- Здесь будут появляться карточки отзывов -->
     </div>
+    <div class="modal" style="display: none">
+        <div class="modal-content">
+            <button class="btn-close">&times;</button>
+            <h2>Запись на прием</h2>
+            <form id="appointment-form" method="post" action="{{ route('records') }}">
+                @csrf
+                <label for="name">ФИО:</label>
+                <input type="text" id="name" name="fullname" value="{{ old('fullname') }}" required />
+                @if ($errors->has('fullname'))
+                    <div class="error">{{ $errors->first('fullname') }}</div>
+                @endif
+                <label for="phone">Номер телефона:</label>
+                <input type="tel" id="phone" data-maska="+7-###-###-##-##" value="{{ old('phone') }}"
+                    name="phone" placeholder="+7 (___) ___-__-__" required />
+                @if ($errors->has('phone'))
+                    <div class="error">{{ $errors->first('phone') }}</div>
+                @endif
 
+
+                <label for="email">Почта:</label>
+                <input type="email" id="email" name="email" placeholder="example@mail.com"
+                    value="{{ old('email') }}" required />
+                @if ($errors->has('email'))
+                    <div class="error">{{ $errors->first('email') }}</div>
+                @endif
+
+
+                <label for="date">Дата:</label>
+                <input type="datetime-local" id="email" name="date" value="{{ old('date') }}" required />
+                @if ($errors->has('date'))
+                    <div class="error">{{ $errors->first('date') }}</div>
+                @endif
+
+
+                <button type="submit" class="submit-btn">Записаться</button>
+            </form>
+        </div>
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Обработка рейтинга
@@ -236,6 +273,9 @@
             });
         });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/maska@3/dist/cdn/maska.js"></script>
+    <script src="{{ asset('/assets/js/mask.js') }}"></script>
+
 </body>
 
 </html>

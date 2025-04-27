@@ -14,7 +14,7 @@ class StoreRecordRequest extends FormRequest
             'fullname' => ['required', 'min:1', 'string'],
             'email' => ['required', 'email'],
             'phone' => ['required', 'regex:/^\+7-\d{3}-\d{3}-\d{2}-\d{2}$/i'],
-            'date' => ['required', 'regex:/^\S{2}.\S{2}.\S{4} \S{2}:\S{2}$/i']
+            'date' => ['required', 'regex:/^\S{4}-\S{2}-\S{2}T\S{2}:\S{2}$/i']
         ];
     }
 
@@ -29,7 +29,7 @@ class StoreRecordRequest extends FormRequest
             'phone.required' => 'Требуется ввести номер телефона',
             'phone.regex' => 'Номер телефона должен соответствовать формату: +7-###-###-##-##',
             'date.required' => 'Требуется ввести дату приема',
-            'date.regex' => 'Дата приема должна соответствовать формату: 0000.00.00 00:00',
+            'date.regex' => 'Дата приема должна соответствовать формату: 00.00.0000 00:00',
         ];
     }
 }

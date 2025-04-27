@@ -18,7 +18,7 @@ class Record extends Model
 
     public function formattedDate()
     {
-        return Carbon::make($this->date)->format("d M");
+        return Carbon::make($this->date)->format("d.m");
     }
 
     public function formattedTime()

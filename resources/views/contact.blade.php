@@ -8,6 +8,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{ asset('/assets/css/contact.css') }}" />
+    <link rel="stylesheet" href="{{ asset('/assets/css/main.css') }}" />
+
 </head>
 
 <body>
@@ -72,16 +74,31 @@
         <div class="modal-content">
             <button class="btn-close">&times;</button>
             <h2>Запись на прием</h2>
-            <form id="appointment-form">
+            <form id="appointment-form" method="post" action="{{ route('records') }}">
+                @csrf
                 <label for="name">ФИО:</label>
-                <input type="text" id="name" name="name" required />
-
+                <input type="text" id="name" name="fullname" value="{{ old('fullname') }}" required />
+                @if ($errors->has('fullname'))
+                    <div class="error">{{ $errors->first('fullname') }}</div>
+                @endif
                 <label for="phone">Номер телефона:</label>
-                <input type="tel" id="phone" name="phone" placeholder="+7 (___) ___-__-__" required />
+                <input type="tel" id="phone" data-maska="+7-###-###-##-##" value="{{ old('phone') }}"
+                    name="phone" placeholder="+7 (___) ___-__-__" required />
+                @if ($errors->has('phone'))
+                    <div class="error">{{ $errors->first('phone') }}</div>
+                @endif
 
                 <label for="email">Почта:</label>
-                <input type="email" id="email" name="email" placeholder="example@mail.com" required />
-
+                <input type="email" id="email" name="email" placeholder="example@mail.com"
+                    value="{{ old('email') }}" required />
+                @if ($errors->has('email'))
+                    <div class="error">{{ $errors->first('email') }}</div>
+                @endif
+                <label for="date">Дата:</label>
+                <input type="datetime-local" id="email" name="date" value="{{ old('date') }}" required />
+                @if ($errors->has('date'))
+                    <div class="error">{{ $errors->first('date') }}</div>
+                @endif
                 <button type="submit" class="submit-btn">Записаться</button>
             </form>
         </div>
@@ -112,7 +129,9 @@
             </div>
         </div>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/maska@3/dist/cdn/maska.js"></script>
     <script src="{{ asset('/assets/js/script.js') }}" defer></script>
+    <script src="{{ asset('/assets/js/mask.js') }}"></script>
 
 </body>
 

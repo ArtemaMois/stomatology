@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\RecordController;
 use Illuminate\Support\Facades\Route;
 
@@ -12,13 +13,8 @@ Route::get('/contacts', function() {
     return view('contact');
 })->name('contact');
 
-Route::get('/about', function () {
-    return view('about');
-})->name('about');
-
-Route::get('feedback', function () {
-    return view('feedback');
-})->name('feedback');
+Route::get('/about', [FeedbackController::class, 'index'])->name('about');
+Route::post('/feedbacks', [FeedbackController::class, 'store'])->name('feedback.store');
 
 Route::get('/service', function () {
     return view('service');
